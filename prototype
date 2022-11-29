@@ -1,0 +1,34 @@
+function ElectricDevices(name, power, condition){
+    this.name = name;
+    this.power = power;
+    this.condition = condition || false
+    }
+let powerTotal = 0;
+
+ElectricDevices.prototype.getInfo = function(){
+  console.log(`${this.name} power is ${this.power}, condition is ${this.condition}`)
+  }
+
+ElectricDevices.prototype.turn = function(){
+  if (!this.condition){
+      powerTotal +=this.power 
+  }else{
+      powerTotal -=this.power
+  }
+  this.condition = !this.condition
+  console.log(`${this.name} condition is `+(this.condition?"on":"off"))
+  console.log('total power is: '+powerTotal)
+  }
+
+const dev = new ElectricDevices('1', 123)
+const dev2 = new ElectricDevices('2', 123)
+const dev3 = new ElectricDevices('3', 23)
+
+
+dev.getInfo()
+dev.turn()
+dev2.getInfo()
+dev2.turn()
+dev3.getInfo()
+dev3.turn()
+dev3.turn()
