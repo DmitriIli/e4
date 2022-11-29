@@ -1,0 +1,30 @@
+var totalPower = 0
+
+class ElectricDevices{
+  constructor(name, power, condition){
+    this.name = name
+    this.power = power
+    this.condition = condition || false
+  }
+  
+  getInfo(){
+    console.log(`${this.name}: power is ${this.power}, condition is ${this.condition}`)
+  }
+  turn(){
+     this.condition = !this.condition
+     console.log(this.condition)
+     if (this.condition){
+       totalPower+=this.power
+       console.log(`total power is:${totalPower}`)
+     }else{      
+       totalPower-=this.power
+       console.log(`total power is:${totalPower}`)
+     }
+  }
+}
+
+let dev = new ElectricDevices('1', 123)
+dev.getInfo()
+dev.turn()
+dev.getInfo()
+dev.turn()
